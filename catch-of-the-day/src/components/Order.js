@@ -59,15 +59,22 @@ class Order extends React.Component {
           transitionEnterTimeout={500}
           transitionLeaveTimeout={500}
           >
-            {orderIds.map(this.renderOrder)}
-            <li className="total">
-              <strong>Total:</strong>
-              {formatPrice(total)}
-            </li>
-          </CSSTransitionGroup>
-        </div>
-      )
-    }
+          {orderIds.map(this.renderOrder)}
+          <li className="total">
+            <strong>Total:</strong>
+            {formatPrice(total)}
+          </li>
+        </CSSTransitionGroup>
+      </div>
+    )
   }
+}
 
-  export default Order
+Order.propTypes = {
+  fishes: React.PropTypes.object.isRequired,
+  order: React.PropTypes.object.isRequired,
+  removeFromOrder: React.PropTypes.func.isRequired
+}
+
+
+export default Order
